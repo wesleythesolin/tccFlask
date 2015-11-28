@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/tccThesolin.css" rel="stylesheet">
+</head>
+<body>
+
+
+<div class='container'>
+<div class="col-xs-12 col-sm-9">
+
+    <h1>RASPBERRY PI</h1>
+<h1>AUTOMAÇÃO RESIDENCIAL</h1>
+
+    <!-- INICIAO COMODO QUARTO 1-->
+    <div class="col-xs-6 col-lg-6 comodocolorclaro">
+        <h2>Quarto 1</h2>
+            <div class="col-xs-2 col-lg-2"></div>
+            <div class="col-xs-10 col-lg-10">
+                <label> Alarme de Invasão </label>
+                <br>
+                {% if ativadobuttonquarto1%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/quarto1Alarme/off';" value="Desativar" />
+                {% else %}
+                    <input type="button" class="btn btn-success" onclick="location.href='/quarto1Alarme/on';" value="Ativar" />
+                {% endif%}
+                <br>
+                <p>Status: {{statusQuarto1}}</p>
+                <br><br>
+                <label>Iluminação Simples</label>
+                <br>
+                {% if lampquarto1%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/quarto1Lamp/off';" value="Apagar" />
+                {% else %}
+                    <input type="button" class="btn btn-success" onclick="location.href='/quarto1Lamp/on';" value="Acender" />
+                {% endif%}
+                <br>
+                <p>Status: {{statusLampQuarto1}}</p>
+
+            </div>
+    </div><!--/.col-xs-6.col-lg-4-->
+
+    <!-- FIM COMODO QUARTO 1-->
+    <!-- INICIAO COMODO Cozinha-->
+    <div class="col-xs-6 col-lg-6 comodocolorescuro">
+         <h2>Cozinha</h2>
+            <div class="col-xs-2 col-lg-2"></div>
+            <div class="col-xs-10 col-lg-10">
+                <label> Alarme de Incêndio </label>
+                <br>
+                {% if alarmeCozinha%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/cozinhaAlarme/off';" value="Desativar" />
+                {% else %}
+                    <input type="button" class="btn btn-success" onclick="location.href='/cozinhaAlarme/on';" value="Ativar" />
+                {% endif%}
+                <br>
+                <p>Status: {{statusAlarmeCozinha}}</p>
+                <br><br>
+                <label>Iluminação Simples</label>
+                <br>
+                {% if lampCozinha%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/cozinhaLamp/off';" value="Apagar" />
+                {% else %}
+                    <input type="button" class="btn btn-success" onclick="location.href='/cozinhaLamp/on';" value="Acender" />
+                {% endif%}
+                <br>
+                <p>Status: {{iluminacaoCozinha}}</p>
+            </div>
+    </div>
+    <!-- FIM COMODO Cozinha-->
+
+ <!-- INICIAO COMODO QUARTO2-->
+    <div class="col-xs-6 col-lg-6 comodocolorescuro">
+         <h2>Quarto 2</h2>
+            <div class="col-xs-2 col-lg-2"></div>
+            <div class="col-xs-10 col-lg-10">
+                <label> Controle Temperatura </label>
+                {% if temperaturaQuarto2 == 0 %}
+                    <p>Temperatura(C): </p>
+                    <input type="button" class="btn btn-success" onclick="location.href='/tempQuarto2';" value="Medir" />
+                {% else %}
+                     <p>Temperatura(C): {{temperaturaQuarto2}}</p>
+                    <input type="button" class="btn btn-success" onclick="location.href='/tempQuarto2';" value="Medir" />
+                {% endif%}
+                <br>
+                <label> Ventilador </label>
+                <br>
+                {% if ventilador%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/ventilador/off';" value="Desligar" />
+                {% else %}
+                    <input type="button" class="btn btn-success" onclick="location.href='/ventilador/on';" value="Ligar" />
+                {% endif%}
+                <br>
+                <p>Status: {{ventiladorStatus}}</p>
+
+                <label>Iluminação Simples</label>
+                <br>
+                {% if lampquarto2%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/cozinhaLamp/off';" value="Apagar" />
+                {% else %}
+                    <input type="button" class="btn btn-success" onclick="location.href='/cozinhaLamp/on';" value="Acender" />
+                {% endif%}
+                <p>Status: {{statusLampQuarto2}}</p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+    </div>
+    <!-- FIM COMODO QUARTO2-->
+
+
+        <!-- INICIAO COMODO Banheiro-->
+    <div class="col-xs-6 col-lg-6 comodocolorclaro">
+         <h2>Banheiro</h2>
+        <br><br><br><br>
+            <div class="col-xs-2 col-lg-2"></div>
+            <div class="col-xs-10 col-lg-10">
+                <label> Controle Iluminação Rápida </label>
+                <br>
+                <label> Iluminação  </label>
+                {% if lampBanheiro%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/banheiroLamp/off';" value="Desativar" />
+                {% else %}
+                    <input type="button" class="btn btn-success" onclick="location.href='/banheiroLamp/on';" value="Ativar" />
+                {% endif%}
+                <br>
+                <p>Status: {{statusLampBanheiro}}</p>
+            </div>
+        <br><br><br><br><br><br><br><br><br>
+        <p></p>
+        <p></p>
+    </div>
+    <!-- FIM COMODO Banheiro-->
+
+
+     <!-- INICIAO COMODO SALA-->
+    <div class="col-xs-6 col-lg-6 comodocolorclaro">
+         <h2>Sala</h2>
+            <div class="col-xs-2 col-lg-2"></div>
+            <div class="col-xs-10 col-lg-10">
+                <label> Controle iluminação Rapida </label>
+                <br>
+                {% if lampSala%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLamp/off';" value="Desativar" />
+                {% else %}
+                    <input type="button" class="btn btn-success" onclick="location.href='/salaLamp/on';" value="Ativar" />
+                {% endif%}
+                <br>
+                <p>Status: {{statusLampSala}}</p>
+                <br>
+                <label>Controle de luminosidade</label>
+                <br>
+                {% if statusDimmerSala == "Desligado"%}
+                    <input type="button" class="btn btn-success" onclick="location.href='/salaLuminosidaLamp/off';" value="Desligado" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/25';" value="25" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/50';" value="50" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/75';" value="75" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/100';" value="100" />
+                {% elif sttusDimmerSala == "25%"%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/off';" value="Desligado" />
+                    <input type="button" class="btn btn-success" onclick="location.href='/salaLuminosidaLamp/25';" value="25" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/50';" value="50" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/75';" value="75" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/100';" value="100" />
+                {% elif statusDimmerSala == "50%"%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/off';" value="Desligado" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/25';" value="25" />
+                    <input type="button" class="btn btn-success" onclick="location.href='/salaLuminosidaLamp/50';" value="50" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/75';" value="75" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/100';" value="100" />
+                {% elif statusDimmerSala == "75%"%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/off';" value="Desligado" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/25';" value="25" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/50';" value="50" />
+                    <input type="button" class="btn btn-success" onclick="location.href='/salaLuminosidaLamp/75';" value="75" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/100';" value="100" />
+                {% elif statusDimmerSala == "100%"%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/off';" value="Desligado" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/25';" value="25" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/50';" value="50" />
+                    <input type="button" class="btn btn-danger" onclick="location.href='/salaLuminosidaLamp/75';" value="75" />
+                    <input type="button" class="btn btn-success" onclick="location.href='/salaLuminosidaLamp/100';" value="100" />
+                {% endif%}
+                <br>
+                <p>Status: {{statusDimmerSala}}</p>
+            </div>
+    </div>
+    <!-- FIM COMODO SALA-->
+
+    <!-- INICIAO COMODO garagem-->
+    <div class="col-xs-6 col-lg-6 comodocolorescuro">
+         <h2>Garagem</h2>
+            <div class="col-xs-2 col-lg-2"></div>
+            <div class="col-xs-10 col-lg-10">
+                <label> Controle Portao </label>
+                <br>
+                {% if portao%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/portao/off';" value="Fechar" />
+                {% else %}
+                    <input type="button" class="btn btn-success" onclick="location.href='/portao/on';" value="Abrir" />
+                {% endif%}
+                <br>
+                <p>Status: {{portaoStatus}}</p>
+                <br>
+                <label>Iluminação</label>
+                <br>
+                {% if garagemLamp%}
+                    <input type="button" class="btn btn-danger" onclick="location.href='/garageLamp/off';" value="Apagar" />
+                {% else %}
+                    <input type="button" class="btn btn-success" onclick="location.href='/garageLamp/on';" value="Acender" />
+                {% endif%}
+                <br>
+                <p>Status: {{statusGaragemLamp}}</p>
+            </div>
+    </div>
+    <!-- FIM COMODO Garagem-->
+
+</div>
+    </div>
+</body>
+</html>
